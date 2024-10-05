@@ -8,9 +8,9 @@ import { SwiperOptions } from 'swiper/types/swiper-options';
 })
 export class LandingPage implements OnInit {
   onboardingScreens = [
-    { image: '1.jpg' },
+    // { image: '1.jpg' },
     { image: '2.jpg' },
-    { image: '3.jpg' },
+    // { image: '3.jpg' },
   ];
 
   swiperConfig: SwiperOptions = {
