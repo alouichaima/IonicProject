@@ -25,3 +25,13 @@
 #container a {
   text-decoration: none;
 }
+.small-modal {
+  --width: 90%; 
+  --max-width: 400px; 
+  --height: auto; 
+  --max-height: 80%; 
+  border-radius: 8px; 
+}
+
+
+

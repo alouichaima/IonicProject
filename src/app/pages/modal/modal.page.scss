@@ -1,0 +1,39 @@
+.header {
+    background-color: #4A90E2; 
+  }
+  
+  .modal-content {
+    padding: 16px;
+    background-color: #f7f7f7; 
+  }
+  
+  .event-details {
+    margin-bottom: 16px;
+  }
+  
+  .image-preview {
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+    margin-bottom: 16px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column; 
+  }
+  
+  ion-button {
+    margin-bottom: 12px; 
+    border-radius: 8px; 
+  }
+  
+  ion-button.success {
+    background-color: #4CAF50; 
+  }
+  
+  ion-button.danger {
+    background-color: #F44336; 
+  }
+  
