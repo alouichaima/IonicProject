@@ -1,0 +1,47 @@
+<ion-header class="header">
+  <ion-toolbar color="primary">
+    <ion-title>Update Event</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="modalCtrl.dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="modal-content">
+  <div *ngIf="event" class="event-details">
+    <img *ngIf="event.imageUrl" [src]="event.imageUrl" alt="Event Image" class="image-preview" />
+
+    <ion-item>
+      <ion-label position="stacked">Event Name</ion-label>
+      <ion-input [(ngModel)]="event.name" placeholder="Enter Event Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Event Date</ion-label>
+      <ion-datetime [(ngModel)]="event.date"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Description</ion-label>
+      <ion-textarea [(ngModel)]="event.description" rows="4" placeholder="Enter Event Description"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Image URL</ion-label>
+      <ion-input [(ngModel)]="event.imageUrl" placeholder="Enter Image URL"></ion-input>
+    </ion-item>
+  </div>
+
+  <div class="button-container">
+    <ion-button expand="block" color="success" (click)="updateEvent()">
+      <ion-icon name="save" slot="start"></ion-icon>
+      Update
+    </ion-button>
+    <ion-button expand="block" color="danger" (click)="deleteEvent()">
+      <ion-icon name="trash" slot="start"></ion-icon>
+      Delete
+    </ion-button>
+  </div>
+</ion-content>
