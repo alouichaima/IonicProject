@@ -23,7 +23,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
     
 
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideFirebaseApp(() => initializeApp({"projectId":"ionicproject-e2149","appId":"1:471773094207:web:ba8a2dc06ad6778ae4f38a","databaseURL":"https://ionicproject-e2149-default-rtdb.firebaseio.com","storageBucket":"ionicproject-e2149.appspot.com","apiKey":"AIzaSyCrvyWK_L3D3auL1mPn0PMAfznBqZcW95o","authDomain":"ionicproject-e2149.firebaseapp.com","messagingSenderId":"471773094207","measurementId":"G-WWMBH3EKVT"})), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
