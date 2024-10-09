@@ -35,6 +35,11 @@ const routes: Routes = [
     path: 'dashboard-admin',
     loadChildren: () => import('./pages/dashboard-admin/dashboard-admin.module').then( m => m.DashboardAdminPageModule)
   },
+  {
+    path: 'email-google-login',
+    loadChildren: () => import('./pages/email-google-login/email-google-login.module').then( m => m.EmailGoogleLoginPageModule)
+  },
+
 
 
 ];

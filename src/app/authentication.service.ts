@@ -1,12 +1,33 @@
 import { Injectable } from '@angular/core';
 import firebase  from 'firebase/compat';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Platform } from '@ionic/angular';
+import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
+import { Auth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+  user:any
 
-  constructor(public ngFireAuth: AngularFireAuth) { }
+  constructor(public ngFireAuth: AngularFireAuth,private platform:Platform,private router:Router) { 
+    this.platform.ready().then(() => {
+      GoogleAuth.initialize()
+    })
+  }
+
+
+
+  async googleSignIn() {
+   
+    this.user=await GoogleAuth.signIn();
+    return await this.user;
+  
+  }
+
+
+
   async registerUser(email:string,password:string){
     return await this.ngFireAuth.createUserWithEmailAndPassword(email,password)
   }
@@ -16,9 +37,7 @@ export class AuthenticationService {
   async resetPassword(email:string){
     return await this.ngFireAuth.sendPasswordResetEmail(email)
   }
-  async signout(){
-    return await this.ngFireAuth.signOut()
-  }
+
   async getProfile(){
     return await this.ngFireAuth.currentUser
   }
