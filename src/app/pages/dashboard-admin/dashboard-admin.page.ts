@@ -2,6 +2,8 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { DataService, EventApp } from 'src/app/services/data.service';
 import { ModalPage } from '../modal/modal.page';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -16,7 +18,9 @@ export class DashboardAdminPage  {
     private dataService: DataService,
     private cd: ChangeDetectorRef,
     private alertCtrl: AlertController,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private ngFireAuth: AngularFireAuth,
+    private router:Router
   ) {
     this.dataService.getEvents().subscribe(res => {
       this.events = res; 
@@ -82,5 +86,15 @@ export class DashboardAdminPage  {
 
     await modal.present();
   }
+  async signOut() {
+    try {
+      await this.ngFireAuth.signOut();
+      console.log("Signed out successfully");
+      this.router.navigate(["/login"]);
+    } catch (error) {
+      console.error("Error signing out: ", error);
+    }
+  }
+
 }
 
