@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { addDoc, collection, collectionData, deleteDoc, doc, docData, Firestore, updateDoc } from '@angular/fire/firestore';
+
+import { Participation } from 'model/Participation';
 import { Observable } from 'rxjs';
+
 export interface EventApp {
   id?: string;
   name: string;
-  date: string; 
+  date: string;
   description: string;
   imageUrl?: string;
 }
@@ -33,14 +36,14 @@ export class DataService {
         console.error('Error adding event: ', error);
     });
   }
-  
+
   updateEvent(event: EventApp) {
     const eventDocRef = doc(this.firestore, `events/${event.id}`);
-    return updateDoc(eventDocRef, { 
-      name: event.name, 
-      date: event.date, 
+    return updateDoc(eventDocRef, {
+      name: event.name,
+      date: event.date,
       description: event.description,
-      imageUrl: event.imageUrl 
+      imageUrl: event.imageUrl
     });
   }
 
@@ -49,6 +52,11 @@ export class DataService {
     return deleteDoc(eventDocRef);
   }
 
-  
+    addParticipation(participation: Participation) {
+      const participationsRef = collection(this.firestore, 'participations');
+      return addDoc(participationsRef, participation);
+    }
+
+
 }
 

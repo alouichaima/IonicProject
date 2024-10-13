@@ -1,12 +1,24 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>
-     home
+      Event List
     </ion-title>
-    <ion-icon name="log-out-outline" slot="end" (click)="signOut()"></ion-icon>  
+    <ion-icon name="log-out-outline" slot="end" (click)="signOut()"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item *ngFor="let event of events">
+      <ion-avatar slot="start">
+        <img [src]="event.imageUrl" alt="{{ event.name }}" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ event.name }}</h2>
+        <p>{{ event.description }}</p>
+        <p>{{ event.date }}</p>
+        <ion-button *ngIf="event.id" (click)="participate(event.id)">Participate</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

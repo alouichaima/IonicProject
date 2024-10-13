@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AuthenticationService {
   user:any
 
-  constructor(public ngFireAuth: AngularFireAuth,private platform:Platform,private router:Router) { 
+  constructor(public ngFireAuth: AngularFireAuth,private platform:Platform,private router:Router) {
     this.platform.ready().then(() => {
       GoogleAuth.initialize()
     })
@@ -20,10 +20,10 @@ export class AuthenticationService {
 
 
   async googleSignIn() {
-   
+
     this.user=await GoogleAuth.signIn();
     return await this.user;
-  
+
   }
 
 
