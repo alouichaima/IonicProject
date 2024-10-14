@@ -13,13 +13,16 @@ ion-item {
   text-align: center;
 
   .subtitle{
-      color: gray;
+    color: wheat;
       font-size: 0.9rem;
   }
   .title{
       font-size: 2rem;
+      color: wheat;
+
   }
 }
+
 .signupLink{
   display: flex;
   margin: auto;
@@ -52,4 +55,7 @@ width: 80%;
   font-weight: 300;
   font-size: small;
   padding-top: -16px;
+}
+ion-content {
+  --background: url('/assets/onboarding_screens/3.jpg') no-repeat center center / cover;
 }

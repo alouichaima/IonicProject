@@ -7,7 +7,7 @@ import { AuthenticationService } from 'src/app/authentication.service';
   templateUrl: './email-google-login.page.html',
   styleUrls: ['./email-google-login.page.scss'],
 })
-export class EmailGoogleLoginPage implements OnInit {
+export class EmailGoogleLoginPage  {
 user:any
   constructor(private authService:AuthenticationService,private router:Router) { }
 
